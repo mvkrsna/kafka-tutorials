@@ -38,7 +38,10 @@ If you manually switch to a different parent and actually want the inheritance, 
 
    ```./bin/kafka-server-start.bat config/server.properties```
 
-3. Create topic
+3. Start the kafka server using KRaft
+   ```Set KAFKA_CLUSTER_ID=./bin/kafka-storage.sh random-uuid```
+
+4. Create topic
 
    ```./bin/kafka-topics.bat --bootstrap-server localhost:9092 --create --topic NewTopic --partitions 3 --replication-factor 1```
 
@@ -52,12 +55,12 @@ If you manually switch to a different parent and actually want the inheritance, 
 
 6. Produce message
 
-   ```./bin/kafka-console-producer.bat --broker-list localhost:9092 --topic NewTopic```
+   ```.\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic NewTopic```
 
 
 7. consume message
 
-   ``` ./bin/kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic NewTopic --from-beginning ```
+   ``` .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic NewTopic --from-beginning```
 
 
 ## Confluent Kafka Community Edition in local ##
